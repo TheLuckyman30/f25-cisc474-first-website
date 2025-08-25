@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html
-  style="
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  "
->
+<html style="width: 100vw; height: 100vh; margin: 0; padding: 0">
   <body style="margin: 0; padding: 0">
-    <div style="font-size: 100px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">
-      Hello World
-    </div>
+    <title>Something</title>
+    <div id="test" style="position: absolute; top: 50%; left: 50%">Hello</div>
+    <script>
+      const button = document.getElementById('test');
+      const pageHeight = window.innerHeight;
+      const buttonHeight = box.offsetHeight;
+      const pageWidth = window.innerWidth;
+      const buttonWidth = box.offsetWidth;
+
+      function moveRandom() {
+        const randomY = Math.floor(Math.random() * (pageHeight - buttonHeight));
+        const randomX = Math.floor(Math.random() * (pageWidth - buttonWidth));
+
+        box.style.top = '0';
+        box.style.left = '0';
+        box.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      }
+    </script>
   </body>
 </html>
