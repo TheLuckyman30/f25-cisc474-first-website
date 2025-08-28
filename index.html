@@ -37,10 +37,11 @@
       const buttonHeight = button.offsetHeight;
       const pageWidth = window.innerWidth;
       const buttonWidth = button.offsetWidth;
+      const counterHeight = counter.offsetHeight;
       let numberOfClicks = 0;
 
       function moveButton() {
-        const randomY = Math.floor(Math.random() * (pageHeight - buttonHeight));
+        const randomY = Math.floor(Math.random() * (pageHeight - buttonHeight - counterHeight));
         const randomX = Math.floor(Math.random() * (pageWidth - buttonWidth));
 
         button.style.top = '0';
@@ -50,7 +51,9 @@
 
       button.addEventListener('mouseenter', () => {
         if (numberOfClicks > 0) {
-          moveButton();
+          setTimeout(() => {
+            moveButton();
+          }, 75);
         }
       });
 
