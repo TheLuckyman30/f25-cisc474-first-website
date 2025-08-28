@@ -62,7 +62,7 @@
 
       button.addEventListener('mouseenter', () => {
         if (numberOfClicks > 0) {
-          timeOutLength = test[`${numberOfClicks}clicks`] || timeOutLength;
+          timeOutLength = clickMilestone[`${numberOfClicks}clicks`] || timeOutLength;
           setTimeout(() => {
             moveButton();
           }, timeOutLength);
