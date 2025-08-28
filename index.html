@@ -31,16 +31,27 @@
       Click Me!
     </div>
     <script>
+      const test = {
+        '10clicks': 175,
+        '20clicks': 150,
+        '30clicks': 100,
+        '40clicks': 125,
+        '50clicks': 75,
+        '100ckicks': 50,
+      };
+
       const button = document.getElementById('button');
       const counter = document.getElementById('counter');
-      const pageHeight = window.innerHeight;
-      const buttonHeight = button.offsetHeight;
-      const pageWidth = window.innerWidth;
-      const buttonWidth = button.offsetWidth;
-      const counterHeight = counter.offsetHeight;
       let numberOfClicks = 0;
+      let timeOutLength = 200;
 
       function moveButton() {
+        const pageHeight = window.innerHeight;
+        const buttonHeight = button.offsetHeight;
+        const pageWidth = window.innerWidth;
+        const buttonWidth = button.offsetWidth;
+        const counterHeight = counter.offsetHeight;
+
         const randomY = Math.floor(Math.random() * (pageHeight - buttonHeight - counterHeight));
         const randomX = Math.floor(Math.random() * (pageWidth - buttonWidth));
 
@@ -51,9 +62,10 @@
 
       button.addEventListener('mouseenter', () => {
         if (numberOfClicks > 0) {
+          timeOutLength = test[`${numberOfClicks}clicks`] || timeOutLength;
           setTimeout(() => {
             moveButton();
-          }, 75);
+          }, timeOutLength);
         }
       });
 
